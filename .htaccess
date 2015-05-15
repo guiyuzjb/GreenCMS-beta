@@ -1,0 +1,17 @@
+# ThinkPHP Rewrite规则
+<IfModule mod_rewrite.c>
+   RewriteEngine on
+   RewriteCond %{REQUEST_FILENAME} !-d
+   RewriteCond %{REQUEST_FILENAME} !-f
+   RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
+</IfModule>
+
+#禁止显示目录列表
+Options -Indexes
+
+
+#模板sql
+<Files *.sql>
+    Order Allow,Deny
+    Deny from all
+</Files>
